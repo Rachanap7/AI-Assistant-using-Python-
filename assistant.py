@@ -49,13 +49,13 @@ def mail(to,content):
         server = smtplib.SMTP('smtp.gmail.com',587)
         server.ehlo()
         server.starttls()
-        server.login("rachana.parkar711@gmail.com","R@p_192667")
-        server.sendmail("parkar.rachana@gmail.com",to,content)
+        server.login("your mail id","your_password")
+        server.sendmail("receiver email id",to,content)
         server.close()
 
 def ss():
         image = pyautogui.screenshot()
-        image.save("C:\\Users\\Rachana Parkar\\Desktop\\Jarvis\\image.png")
+        image.save("C:\\Users\\Rachana Parkar\\Desktop\\Assistant\\image.png")
 
 def cpuinfo():
         usage = str(psutil.cpu_percent())
@@ -108,7 +108,7 @@ if __name__ == "__main__":
                         try:
                                 speak("what should i say?")
                                 content = usercommand()
-                                to = "parkar.rachana@gmail.com"
+                                to = "receiver email"
                                 mail(to,content)
                                 speak("mail sent successfully")
                         except Exception as e:
@@ -118,7 +118,7 @@ if __name__ == "__main__":
                         speak("what should i search")
                         search = usercommand().lower()
                         chromepath ="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe %s"
-                        #wb.register('chrome', None,wb.BackgroundBrowser(chromepath))
+                       
                         wb.get(chromepath).open_new_tab(search+ ".com")
 
                 elif "logout" in query:
